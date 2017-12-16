@@ -1,0 +1,35 @@
+<head>
+    <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+</head>
+<a href="/songs">Dashboard</a>
+
+<h1>People who have added <%= @song.artist %> - <%= @song.title %></h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Times Added</th>
+    </tr>
+    <% @song.adds.each do |add| %>
+    <tr>
+        <td> <a href="/users/<%= add.user.id %>"><%= add.user.full_name %> </a></td>
+        <td> <%= add.amount %> </td>
+    </tr>
+    <%end%>
+</table>
